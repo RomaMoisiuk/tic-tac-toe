@@ -1,0 +1,48 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.1",
+  "description": "Tic-tac-toe game API",
+  "main": "app.js",
+  "author": "Roman Moisiuk <moisiuk.roma@gmail.com>",
+  "license": "All rights reserved SSH Communications Security Ltd",
+  "scripts": {
+    "start": "nodemon --exec babel-node ./server.js",
+    "migrate": "knex --env=development migrate:latest; knex --env=test migrate:latest",
+    "lint": "eslint '**/*.js' --ignore-pattern node_modules/ --ignore-pattern test/ --quiet",
+    "coverage": "nyc report --reporter=text",
+    "test": "MOCHA_ENV=test nyc mocha --opts .mocharc --require ./test/helpers/testHelper.js"
+  },
+  "dependencies": {
+    "cors": "~2.8.5",
+    "express": "~4.17.1",
+    "knex": "~0.20.4",
+    "pg": "~7.15.1",
+    "uuid": "~3.3.3",
+    "validator": "~12.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.7.7",
+    "@babel/node": "~7.7.7",
+    "@babel/plugin-proposal-export-default-from": "~7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "~7.7.4",
+    "@babel/plugin-transform-modules-commonjs": "~7.7.5",
+    "@babel/preset-env": "~7.7.7",
+    "@babel/register": "~7.7.7",
+    "babel-eslint": "~8.2.6",
+    "chai": "~4.1.2",
+    "dotenv": "~8.2.0",
+    "eslint": "~6.1.0",
+    "mocha": "~5.2.0",
+    "nodemon": "~1.18.3",
+    "nyc": "~13.0.1",
+    "supertest": "~4.0.2",
+    "yo": "~2.0.4"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "report-dir": "./test/coverage"
+  }
+}
