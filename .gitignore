@@ -2,3 +2,6 @@
 yarn.lock
 .nyc_output
 /test/coverage
+tic.tac.toe-key.pem
+tic.tac.toe.pem
+yarn-error.log
